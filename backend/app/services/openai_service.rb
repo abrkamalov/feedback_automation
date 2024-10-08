@@ -49,11 +49,15 @@ class OpenAIService
     end
   
     def self.simulate_tool_call(feedback, action_type)
-      feedback.action_logs.create(
-        action_type: action_type,
-        status: 'Triggered',
-        details: "Simulated tool call for #{action_type}"
-      )
+        # Call the mock external service
+        response = MockExternalService.call(action_type)
+
+        # Create an ActionLog entry with the response
+        feedback.action_logs.create(
+            action_type: action_type,
+            status: 'Completed',
+            details: response
+        )
     end
   end
   
