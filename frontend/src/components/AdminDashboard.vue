@@ -9,6 +9,7 @@
           <th>Feedback</th>
           <th>Tags</th>
           <th>Actions Taken</th>
+          <th>Remove</th>
         </tr>
       </thead>
       <tbody>
@@ -24,10 +25,12 @@
           <td>
             <ul>
               <li v-for="action in feedback.action_logs" :key="action.id">
-                {{ action.action_type }} - {{ action.status }}
                 <p>{{ action.details }}</p>
               </li>
             </ul>
+          </td>
+          <td>
+            <button @click="removeFeedback(feedback.id)">Remove</button>
           </td>
         </tr>
       </tbody>
@@ -43,8 +46,15 @@ export default {
     const feedbackStore = useFeedbackStore();
     feedbackStore.fetchFeedbacks();
 
+    const removeFeedback = (id) => {
+      if (confirm('Are you sure you want to remove this feedback?')) {
+        feedbackStore.removeFeedback(id);
+      }
+    };
+
     return {
       feedbackStore,
+      removeFeedback,
     };
   },
 };

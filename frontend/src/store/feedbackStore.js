@@ -14,5 +14,13 @@ export const useFeedbackStore = defineStore('feedback', {
         console.error(error);
       }
     },
+    async removeFeedback(id) {
+      try {
+        await apiService.delete(`/feedbacks/${id}`);
+        this.feedbacks = this.feedbacks.filter(feedback => feedback.id !== id);
+      } catch (error) {
+        console.error('Error removing feedback:', error);
+      }
+    },
   },
 });

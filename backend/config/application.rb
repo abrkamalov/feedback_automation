@@ -16,6 +16,9 @@ module Backend
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    # Add this line to autoload the services directory
+    config.autoload_paths << Rails.root.join('app', 'services')
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -29,7 +32,7 @@ module Backend
         origins '*'
         resource '*',
           headers: :any,
-          methods: [:get, :post, :options]
+          methods: [:get, :post, :options, :delete, :put, :patch]
       end
     end
 
