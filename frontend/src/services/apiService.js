@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3000', // Rails backend URL
+  baseURL: 'https://feedback-automation.onrender.com', // Rails backend URL
   headers: {
     'Content-Type': 'application/json',
   },
