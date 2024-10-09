@@ -48,7 +48,7 @@
 </template>
 
 <script setup>
-import { useFeedbackStore } from '@/store/feedbackStore';
+import { useFeedbackStore } from '@/stores/feedbackStore';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';

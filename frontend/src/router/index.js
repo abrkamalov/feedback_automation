@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import FeedbackForm from '@/components/FeedbackForm.vue';
-import AdminDashboard from '@/components/AdminDashboard.vue';
+import FeedbackForm from '@/views/FeedbackForm.vue';
+import AdminDashboard from '@/views/AdminDashboard.vue';
 
 const routes = [
   {
